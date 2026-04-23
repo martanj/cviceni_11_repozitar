@@ -49,9 +49,17 @@ class StudentsGrades:
                     scores[hled], scores[hled + 1] = scores[hled + 1], scores[hled]
         return scores
 
-
+def main():
+    results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+    print((f"Test psalo {results.count()} studentu."))
+    for i, score in enumerate(results.scores):
+        grade = results.get_grade(i)
+        print(f"Student {i}: {score} points - {grade}")
+    print(f"Studenti s plym: {results.find(100)}")
+    print(f"Serazene vysledy: {results.get_sorted()}")
 
 if __name__ == '__main__':
+    main()
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
     print(results.find(100))  # [6]
     print(results.find(50))  # [4]
