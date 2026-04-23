@@ -19,28 +19,29 @@ def selection_sort(values):
     return seznam
 
 
-plt.ion()
-plt.show()
+
 def bubble_sort(numbers):
     bubliki = numbers.copy()
     dylka = len(numbers)
+    plt.ion()
+    plt.show()
     for ukl in range(dylka):
         for hled in range(0, dylka - ukl -1):
             if bubliki[hled] > bubliki[hled + 1]:
                 bubliki[hled], bubliki[hled + 1] = bubliki[hled + 1], bubliki[hled]
-                index_highlight1 = hled
-                index_highlight2 = hled + 1
-                colors = ["steelblue"] * dylka
-                colors[index_highlight1] = "tomato"
-                colors[index_highlight2] = "tomato"
-                plt.clf()
-                plt.bar(range(dylka), values, color=colors)
-                plt.title("Bubble Sort")
-                plt.pause(0.1)
-
+            index_highlight1 = hled
+            index_highlight2 = hled + 1
+            colors = ["steelblue"] * dylka
+            colors[index_highlight1] = "tomato"
+            colors[index_highlight2] = "tomato"
+            plt.clf()
+            plt.bar(range(dylka), bubliki, color=colors)
+            plt.title("Bubble Sort")
+            plt.pause(0.1)
+    plt.ioff()
+    plt.show()
     return bubliki
-plt.ioff()
-plt.show()
+
 
 
 
@@ -52,6 +53,7 @@ def main():
     serazeno_nah = selection_sort(nahodne)
 
 if __name__ == "__main__":
-    main()
+    test = random_numbers(10)
+    bubble_sort(test)
 
 
