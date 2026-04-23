@@ -1,4 +1,5 @@
 class StudentsGrades:
+    from sorting import bubble_sort
     def __init__(self, scores):
         self.scores = scores
 
@@ -39,6 +40,16 @@ class StudentsGrades:
                 seznamek.append(i)
         return seznamek
 
+    def get_sorted(self):
+        scores = self.scores.copy()
+        dylka = len(self.scores)
+        for ukl in range(dylka):
+            for hled in range(0, dylka - ukl - 1):
+                if scores[hled] > scores[hled + 1]:
+                    scores[hled], scores[hled + 1] = scores[hled + 1], scores[hled]
+        return scores
+
+
 
 if __name__ == '__main__':
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
@@ -46,3 +57,5 @@ if __name__ == '__main__':
     print(results.find(50))  # [4]
     print(results.find(77))  # []
 
+    print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
+    print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]  ← beze změny
